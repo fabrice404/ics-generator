@@ -42,7 +42,7 @@ fs.readdir(INPUT, (errFolder, files) => {
   if (errFolder) {
     throw errFolder;
   }
-  files.filter(file => path.extname(file).toLowerCase() === '.json')
+  files.filter(file => path.extname(file).toLowerCase() === '.json' && file !== 'sample.json')
     .forEach(file => {
       fs.readFile(`${INPUT}/${file}`, { encoding: 'utf-8' }, (errFile, content) => {
         if (errFile) {
