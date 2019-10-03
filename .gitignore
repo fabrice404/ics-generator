@@ -1,0 +1,7 @@
+input/*
+!input/sample.json
+
+output/*
+!output/sample.ics
+
+node_modules

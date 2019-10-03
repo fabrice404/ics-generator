@@ -1,0 +1,11 @@
+{
+  "name": "ics-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cli-table": "^0.3.1",
+    "moment-timezone": "^0.5.26",
+    "node-ssh": "^6.0.0"
+  }
+}
