@@ -5,7 +5,16 @@
   "license": "MIT",
   "dependencies": {
     "cli-table": "^0.3.1",
+    "eslint": "^6.5.1",
+    "eslint-config-import": "^0.13.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "moment-timezone": "^0.5.26",
-    "node-ssh": "^6.0.0"
+    "node-ssh": "^6.0.0",
+    "prettier": "^1.18.2"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint ./"
   }
 }
