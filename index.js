@@ -5,6 +5,8 @@ const nodeSsh = require('node-ssh');
 const ssh = new nodeSsh();
 const path = require('path');
 
+const CRLF = '\r\n';
+
 const vEVENT = (event) => {
   const icsEvent = [];
   if (event.description) {
@@ -19,7 +21,7 @@ const vEVENT = (event) => {
 
   icsEvent.push(`UID:${moment(event.begin).format('YYYYMMDDTHHmmss')}`);
 
-  return `BEGIN:VEVENT\n${icsEvent.sort().join('\n')}\nEND:VEVENT`;
+  return `BEGIN:VEVENT${CRLF}${icsEvent.sort().join(CRLF)}${CRLF}END:VEVENT`;
 }
 
 const vCALENDAR = (calendar) => {
@@ -28,11 +30,11 @@ const vCALENDAR = (calendar) => {
   const icsCalendar = [];
   icsCalendar.push('BEGIN:VCALENDAR')
   icsCalendar.push('VERSION:2.0')
-  icsCalendar.push('PRODID:-//ical-generator//NONSGML Event Calendar//EN')
-  icsCalendar.push(icsEvents.join('\n'))
+  icsCalendar.push('PRODID:-//ics-generator//Calendar//EN')
+  icsCalendar.push(icsEvents.join(CRLF))
   icsCalendar.push('END:VCALENDAR')
 
-  return icsCalendar.join('\n');
+  return icsCalendar.join(CRLF);
 }
 
 const INPUT = `${__dirname}/input`
